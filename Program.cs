@@ -13,12 +13,12 @@ class Program
 
     static async Task Main(string[] args)
     {
-        // Инициализация бота
+        // API
         botClient = new TelegramBotClient("8154294084:AAEaR9VKxSz3YKbhQqoO_2WTqxO9E74ZeCM");
 
         try
         {
-            // Получение информации о боте
+            // информация о боте в теминал 
             var me = await botClient.GetMeAsync();
             Console.WriteLine($"Информация о боте:");
             Console.WriteLine($"Название: {me.FirstName}");
@@ -29,10 +29,10 @@ class Program
             Console.WriteLine($"Ошибка при получении информации о боте: {ex.Message}");
         }
 
-        // Настройка опций для получения обновлений
+        // настройка опций для получения обновлений
         var receiverOptions = new ReceiverOptions
         {
-            AllowedUpdates = Array.Empty<UpdateType>() // Получаем все типы обновлений
+            AllowedUpdates = Array.Empty<UpdateType>() 
         };
 
         // Запуск получения обновлений
@@ -51,7 +51,7 @@ class Program
     {
         var errorMessage = exception switch
         {
-            ApiRequestException apiException => $"Telegram API Error:\n[{apiException.ErrorCode}]\n{apiException.Message}",
+            ApiRequestException apiException => $"Ошибка Telegram API:\n[{apiException.ErrorCode}]\n{apiException.Message}",
             _ => exception.ToString()
         };
 

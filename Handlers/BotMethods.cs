@@ -9,14 +9,32 @@ namespace Handlers
 {
     public static class BotMethods
     {
-        // Словарь: слово на русском -> перевод на английский и турецкий
+        // Словарь с русского на англ и турецкий
         private static readonly Dictionary<string, (string English, string Turkish)> Dictionary = new(StringComparer.OrdinalIgnoreCase)
         {
             { "привет", ("hello", "merhaba") },
             { "мир", ("world", "dünya") },
             { "кот", ("cat", "kedi") },
             { "собака", ("dog", "köpek") },
-            { "дом", ("house", "ev") }
+            { "дом", ("house", "ev") },
+            { "ухо", ("ear", "kulak") },
+            { "зима", ("winter", "kış") },
+            { "лето", ("summer", "yaz") },
+            { "весна", ("spring", "bahar") },
+            { "осень", ("autumn", "sonbahar") },
+            { "програмист", ("programmer", "programcı") },
+            { "любовь", ("love", "aşk") },
+            { "Россия", ("Russia", "Rusya") },
+            { "Санкт-Петербург", ("Saint-Petersburg", "Saint Petersburg") },
+            { "фен", ("fan", "saç kurutma makinesi") },
+            { "лампа", ("lamp", "lamba") },
+            { "музыка", ("music", "müzik") },
+            { "лицо", ("face", "kişi") },
+            { "код", ("code", "kod") },
+            { "пожалуйста", ("please", "lütfen") },
+            { "спасибо", ("thanks", "teşekkürler") },
+            { "пока", ("while", "kadar") }
+
         };
 
         /// <summary>
