@@ -1,11 +1,8 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Telegram.Bot;
+﻿using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types.Enums;
-using Handlers; 
+using Handlers;
 
 class Program
 {
@@ -13,12 +10,12 @@ class Program
 
     static async Task Main(string[] args)
     {
-        // API
-        botClient = new TelegramBotClient("8154294084:AAEaR9VKxSz3YKbhQqoO_2WTqxO9E74ZeCM");
+        // Инициализация бота           
+        botClient = new TelegramBotClient("7769306776:AAGW8k9A9MmFJSZp6N1Lpr-IQYVsGgj77sM");
 
         try
         {
-            // информация о боте в теминал 
+            // информация о боте
             var me = await botClient.GetMeAsync();
             Console.WriteLine($"Информация о боте:");
             Console.WriteLine($"Название: {me.FirstName}");
@@ -29,21 +26,18 @@ class Program
             Console.WriteLine($"Ошибка при получении информации о боте: {ex.Message}");
         }
 
-        // настройка опций для получения обновлений
         var receiverOptions = new ReceiverOptions
         {
-            AllowedUpdates = Array.Empty<UpdateType>() 
+            AllowedUpdates = Array.Empty<UpdateType>()
         };
-
-        // Запуск получения обновлений
         botClient.StartReceiving(
-            updateHandler: BotMethods.HandleUpdateAsync, // Используем метод из BotMethods
+            updateHandler: BotMethods.HandleUpdateAsync,
             pollingErrorHandler: HandlePollingErrorAsync,
             receiverOptions: receiverOptions,
             cancellationToken: CancellationToken.None
         );
 
-        Console.WriteLine("БОТ ЗАПУЩЕН");
+        Console.WriteLine("БОТ ЗАПУЩЕН(перейдите в тг)");
         await Task.Delay(-1);
     }
 
